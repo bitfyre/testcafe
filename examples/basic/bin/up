@@ -6,10 +6,9 @@ docker run \
   --interactive \
   --init \
   --tty \
-  --mount type=bind,src="$(pwd)",dst="/home/node/testcafe" \
-  -v "/home/node/testcafe/node_modules" \
+  --mount type=bind,src="$(pwd)",dst="/test" \
   -p 8881:8881 \
   -p 8882:8882 \
-  testcafe-spike:latest \
-  '/bin/bash'
+  testcafe/testcafe \
+  remote /test/test.js --ports 8881,8882 --hostname localhost -e
 
