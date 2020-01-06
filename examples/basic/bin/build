@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# clear out node_modules to prevent conflicts
+
+if [ -d ./node_modules ] ; then
+  echo "[i] Deleting project node_modules directory"
+  rm -r ./node_modules
+fi
+
+docker build -t testcafe-spike:latest .
+
